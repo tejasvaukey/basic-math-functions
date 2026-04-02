@@ -1,4 +1,6 @@
-import static java.lang.Math.log10;
+import java.util.ArrayList;
+
+import static java.lang.Math.*;
 
 class Main{
 
@@ -60,7 +62,49 @@ class Main{
         }
     }
 
+    // ARRAY LIST IMPLEMENTATION
+//    public static void printAllDivisor2(int n){
+//        ArrayList<Integer> list = new ArrayList<>();
+//        for (int i = 1; i <= sqrt(n); i++) {
+//            if(n%i == 0) {
+//                System.out.print(i+", ");
+//
+//            }
+//        }
+//    }
+
+    public static void isPrime(int n){
+        int count = 0;
+        for (int i = 1; i <= n; i++) {
+            if(n%i == 0) count++;
+        }
+        if(count == 2) System.out.print("Yes!!");
+        else System.out.println("No");
+    }
+
+    public static void printGCD(int n1, int n2){
+        int mini = min(n1,n2);
+        for (int i = mini; i >= 1; i--) {
+            if(n1 % i == 0 && n2 % i == 0){
+                System.out.println(i);
+                break;
+            }
+        }
+
+    }
+
+    public static void printGCD2(int a, int b){
+        // EUCLIDEAN ALGORITHM
+        while(a>0 && b>0){
+            if(a > b) a = a%b;
+            else b = b%a;
+        }
+        if(a==0) System.out.println(b);
+        else System.out.println(a);
+
+    }
+
     static void main(String[] args) {
-        printAllDivisor(36);
+        printGCD(36, 24);
     }
 }
